@@ -190,10 +190,11 @@
               </template>
             </vgt-header-row>
             <!-- normal rows here. we loop over all rows -->
-            <tr
+            <template
               v-if="groupOptions.collapsable ? headerRow.vgtIsExpanded : true"
-              v-for="(row, index) in headerRow.children"
-              :key="row.originalIndex"
+              v-for="(row, index) in headerRow.children">
+            <tr
+              :key="'base_' + row.originalIndex"
               :class="getRowStyleClass(row)"
               @mouseenter="onMouseenter(row, index)"
               @mouseleave="onMouseleave(row, index)"
@@ -242,6 +243,20 @@
                 </slot>
               </td>
             </tr>
+            <tr
+              v-if="hasDetailRows && row[rowExtensionKeys['isDetailRowShown']]"
+              class="vgt-detail-row"
+              :key="'detail_' + row.originalIndex">
+              <td :colspan="visibleColumns.length">
+                <slot
+                    name="table-detail-row"
+                    :row="row"
+                    :index="index"
+                  >
+                  </slot>
+              </td>
+            </tr>
+            </template>
             <!-- if group row header is at the bottom -->
             <vgt-header-row
               v-if="groupHeaderOnBottom"
@@ -359,6 +374,13 @@ export default {
     rtl: Boolean,
     rowStyleClass: { default: null, type: [Function, String] },
     compactMode: Boolean,
+    hasDetailRows: Boolean,
+    rowExtensionKeys: { type: Object, default: function() {
+        return {
+          isDetailRowShown:'isDetailRowShown'
+        }
+      }
+    },
 
     groupOptions: {
       default() {
@@ -540,6 +562,11 @@ export default {
   },
 
   computed: {
+    visibleColumns() {
+      return this.columns.filter(column => {
+        return !column.hidden && column.field;
+      });
+    },
     tableStyles() {
       if (this.compactMode)
         return this.tableStyleClasses + 'vgt-compact'
