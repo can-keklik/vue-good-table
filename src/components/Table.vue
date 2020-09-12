@@ -374,7 +374,7 @@ export default {
     rtl: Boolean,
     rowStyleClass: { default: null, type: [Function, String] },
     compactMode: Boolean,
-    hasDetailRows: Boolean,
+    hasDetailRows: { default: false , type: Boolean },
     rowExtensionKeys: { type: Object, default: function() {
         return {
           isDetailRowShown:'isDetailRowShown'
