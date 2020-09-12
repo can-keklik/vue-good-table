@@ -9,9 +9,11 @@
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
   typeof define === 'function' && define.amd ? define(['exports'], factory) :
   (global = global || self, factory(global['vue-good-table'] = {}));
-}(this, function (exports) { 'use strict';
+}(this, (function (exports) { 'use strict';
 
   function _typeof(obj) {
+    "@babel/helpers - typeof";
+
     if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
       _typeof = function (obj) {
         return typeof obj;
@@ -26,19 +28,15 @@
   }
 
   function _slicedToArray(arr, i) {
-    return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest();
+    return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
   }
 
   function _toConsumableArray(arr) {
-    return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread();
+    return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();
   }
 
   function _arrayWithoutHoles(arr) {
-    if (Array.isArray(arr)) {
-      for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) arr2[i] = arr[i];
-
-      return arr2;
-    }
+    if (Array.isArray(arr)) return _arrayLikeToArray(arr);
   }
 
   function _arrayWithHoles(arr) {
@@ -46,10 +44,11 @@
   }
 
   function _iterableToArray(iter) {
-    if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter);
+    if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter);
   }
 
   function _iterableToArrayLimit(arr, i) {
+    if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;
     var _arr = [];
     var _n = true;
     var _d = false;
@@ -75,12 +74,29 @@
     return _arr;
   }
 
+  function _unsupportedIterableToArray(o, minLen) {
+    if (!o) return;
+    if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+    var n = Object.prototype.toString.call(o).slice(8, -1);
+    if (n === "Object" && o.constructor) n = o.constructor.name;
+    if (n === "Map" || n === "Set") return Array.from(o);
+    if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
+  }
+
+  function _arrayLikeToArray(arr, len) {
+    if (len == null || len > arr.length) len = arr.length;
+
+    for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
+
+    return arr2;
+  }
+
   function _nonIterableSpread() {
-    throw new TypeError("Invalid attempt to spread non-iterable instance");
+    throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
   }
 
   function _nonIterableRest() {
-    throw new TypeError("Invalid attempt to destructure non-iterable instance");
+    throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
   }
 
   /**
@@ -7603,9 +7619,7 @@
 
   /* style inject shadow dom */
 
-  var __vue_component__ =
-  /*#__PURE__*/
-  normalizeComponent({
+  var __vue_component__ = /*#__PURE__*/normalizeComponent({
     render: __vue_render__,
     staticRenderFns: __vue_staticRenderFns__
   }, __vue_inject_styles__, __vue_script__, __vue_scope_id__, __vue_is_functional_template__, __vue_module_identifier__, false, undefined, undefined, undefined);
@@ -7924,9 +7938,7 @@
 
   /* style inject shadow dom */
 
-  var __vue_component__$1 =
-  /*#__PURE__*/
-  normalizeComponent({
+  var __vue_component__$1 = /*#__PURE__*/normalizeComponent({
     render: __vue_render__$1,
     staticRenderFns: __vue_staticRenderFns__$1
   }, __vue_inject_styles__$1, __vue_script__$1, __vue_scope_id__$1, __vue_is_functional_template__$1, __vue_module_identifier__$1, false, undefined, undefined, undefined);
@@ -8043,9 +8055,7 @@
 
   /* style inject shadow dom */
 
-  var __vue_component__$2 =
-  /*#__PURE__*/
-  normalizeComponent({
+  var __vue_component__$2 = /*#__PURE__*/normalizeComponent({
     render: __vue_render__$2,
     staticRenderFns: __vue_staticRenderFns__$2
   }, __vue_inject_styles__$2, __vue_script__$2, __vue_scope_id__$2, __vue_is_functional_template__$2, __vue_module_identifier__$2, false, undefined, undefined, undefined);
@@ -8267,9 +8277,7 @@
 
   /* style inject shadow dom */
 
-  var __vue_component__$3 =
-  /*#__PURE__*/
-  normalizeComponent({
+  var __vue_component__$3 = /*#__PURE__*/normalizeComponent({
     render: __vue_render__$3,
     staticRenderFns: __vue_staticRenderFns__$3
   }, __vue_inject_styles__$3, __vue_script__$3, __vue_scope_id__$3, __vue_is_functional_template__$3, __vue_module_identifier__$3, false, undefined, undefined, undefined);
@@ -8595,9 +8603,7 @@
 
   /* style inject shadow dom */
 
-  var __vue_component__$4 =
-  /*#__PURE__*/
-  normalizeComponent({
+  var __vue_component__$4 = /*#__PURE__*/normalizeComponent({
     render: __vue_render__$4,
     staticRenderFns: __vue_staticRenderFns__$4
   }, __vue_inject_styles__$4, __vue_script__$4, __vue_scope_id__$4, __vue_is_functional_template__$4, __vue_module_identifier__$4, false, undefined, undefined, undefined);
@@ -8858,12 +8864,30 @@
 
   /* style inject shadow dom */
 
-  var __vue_component__$5 =
-  /*#__PURE__*/
-  normalizeComponent({
+  var __vue_component__$5 = /*#__PURE__*/normalizeComponent({
     render: __vue_render__$5,
     staticRenderFns: __vue_staticRenderFns__$5
   }, __vue_inject_styles__$5, __vue_script__$5, __vue_scope_id__$5, __vue_is_functional_template__$5, __vue_module_identifier__$5, false, undefined, undefined, undefined);
+
+  function toInteger(dirtyNumber) {
+    if (dirtyNumber === null || dirtyNumber === true || dirtyNumber === false) {
+      return NaN;
+    }
+
+    var number = Number(dirtyNumber);
+
+    if (isNaN(number)) {
+      return number;
+    }
+
+    return number < 0 ? Math.ceil(number) : Math.floor(number);
+  }
+
+  function requiredArgs(required, args) {
+    if (args.length < required) {
+      throw new TypeError(required + ' argument' + (required > 1 ? 's' : '') + ' required, but only ' + args.length + ' present');
+    }
+  }
 
   /**
    * @name toDate
@@ -8895,11 +8919,9 @@
    * const result = toDate(1392098430000)
    * //=> Tue Feb 11 2014 11:30:30
    */
-  function toDate(argument) {
-    if (arguments.length < 1) {
-      throw new TypeError('1 argument required, but only ' + arguments.length + ' present');
-    }
 
+  function toDate(argument) {
+    requiredArgs(1, arguments);
     var argStr = Object.prototype.toString.call(argument); // Clone the date
 
     if (argument instanceof Date || typeof argument === 'object' && argStr === '[object Date]') {
@@ -8910,27 +8932,13 @@
     } else {
       if ((typeof argument === 'string' || argStr === '[object String]') && typeof console !== 'undefined') {
         // eslint-disable-next-line no-console
-        console.warn("Starting with v2.0.0-beta.1 date-fns doesn't accept strings as arguments. Please use `parseISO` to parse strings. See: https://git.io/fjule"); // eslint-disable-next-line no-console
+        console.warn("Starting with v2.0.0-beta.1 date-fns doesn't accept strings as date arguments. Please use `parseISO` to parse strings. See: https://git.io/fjule"); // eslint-disable-next-line no-console
 
         console.warn(new Error().stack);
       }
 
       return new Date(NaN);
     }
-  }
-
-  function toInteger(dirtyNumber) {
-    if (dirtyNumber === null || dirtyNumber === true || dirtyNumber === false) {
-      return NaN;
-    }
-
-    var number = Number(dirtyNumber);
-
-    if (isNaN(number)) {
-      return number;
-    }
-
-    return number < 0 ? Math.ceil(number) : Math.floor(number);
   }
 
   /**
@@ -8946,7 +8954,7 @@
    * - [Changes that are common for the whole library](https://github.com/date-fns/date-fns/blob/master/docs/upgradeGuide.md#Common-Changes).
    *
    * @param {Date|Number} date - the date to be changed
-   * @param {Number} amount - the amount of milliseconds to be added
+   * @param {Number} amount - the amount of milliseconds to be added. Positive decimals will be rounded using `Math.floor`, decimals less than zero will be rounded using `Math.ceil`.
    * @returns {Date} the new date with the milliseconds added
    * @throws {TypeError} 2 arguments required
    *
@@ -8957,16 +8965,17 @@
    */
 
   function addMilliseconds(dirtyDate, dirtyAmount) {
-    if (arguments.length < 2) {
-      throw new TypeError('2 arguments required, but only ' + arguments.length + ' present');
-    }
-
+    requiredArgs(2, arguments);
     var timestamp = toDate(dirtyDate).getTime();
     var amount = toInteger(dirtyAmount);
     return new Date(timestamp + amount);
   }
 
   var MILLISECONDS_IN_MINUTE = 60000;
+
+  function getDateMillisecondsPart(date) {
+    return date.getTime() % MILLISECONDS_IN_MINUTE;
+  }
   /**
    * Google Chrome as of 67.0.3396.87 introduced timezones with offset that includes seconds.
    * They usually appear for dates that denote time before the timezones were introduced
@@ -8979,11 +8988,13 @@
    * This function returns the timezone offset in milliseconds that takes seconds in account.
    */
 
+
   function getTimezoneOffsetInMilliseconds(dirtyDate) {
     var date = new Date(dirtyDate.getTime());
-    var baseTimezoneOffset = date.getTimezoneOffset();
+    var baseTimezoneOffset = Math.ceil(date.getTimezoneOffset());
     date.setSeconds(0, 0);
-    var millisecondsPartOfTimezoneOffset = date.getTime() % MILLISECONDS_IN_MINUTE;
+    var hasNegativeUTCOffset = baseTimezoneOffset > 0;
+    var millisecondsPartOfTimezoneOffset = hasNegativeUTCOffset ? (MILLISECONDS_IN_MINUTE + getDateMillisecondsPart(date)) % MILLISECONDS_IN_MINUTE : getDateMillisecondsPart(date);
     return baseTimezoneOffset * MILLISECONDS_IN_MINUTE + millisecondsPartOfTimezoneOffset;
   }
 
@@ -9025,10 +9036,7 @@
    */
 
   function compareAsc(dirtyDateLeft, dirtyDateRight) {
-    if (arguments.length < 2) {
-      throw new TypeError('2 arguments required, but only ' + arguments.length + ' present');
-    }
-
+    requiredArgs(2, arguments);
     var dateLeft = toDate(dirtyDateLeft);
     var dateRight = toDate(dirtyDateRight);
     var diff = dateLeft.getTime() - dateRight.getTime();
@@ -9071,7 +9079,7 @@
    *   | `new Date('')`            | `false`       | `false`       |
    *   | `new Date(1488370835081)` | `true`        | `true`        |
    *   | `new Date(NaN)`           | `false`       | `false`       |
-   *   | `'2016-01-01'`            | `TypeError`   | `true`        |
+   *   | `'2016-01-01'`            | `TypeError`   | `false`       |
    *   | `''`                      | `TypeError`   | `false`       |
    *   | `1488370835081`           | `TypeError`   | `true`        |
    *   | `NaN`                     | `TypeError`   | `false`       |
@@ -9101,10 +9109,7 @@
    */
 
   function isValid(dirtyDate) {
-    if (arguments.length < 1) {
-      throw new TypeError('1 argument required, but only ' + arguments.length + ' present');
-    }
-
+    requiredArgs(1, arguments);
     var date = toDate(dirtyDate);
     return !isNaN(date);
   }
@@ -9138,6 +9143,14 @@
     xDays: {
       one: '1 day',
       other: '{{count}} days'
+    },
+    aboutXWeeks: {
+      one: 'about 1 week',
+      other: 'about {{count}} weeks'
+    },
+    xWeeks: {
+      one: '1 week',
+      other: '{{count}} weeks'
     },
     aboutXMonths: {
       one: 'about 1 month',
@@ -9455,12 +9468,12 @@
       var value;
 
       if (Object.prototype.toString.call(parsePatterns) === '[object Array]') {
-        value = parsePatterns.findIndex(function (pattern) {
-          return pattern.test(string);
+        value = findIndex(parsePatterns, function (pattern) {
+          return pattern.test(matchedString);
         });
       } else {
         value = findKey(parsePatterns, function (pattern) {
-          return pattern.test(string);
+          return pattern.test(matchedString);
         });
       }
 
@@ -9476,6 +9489,14 @@
   function findKey(object, predicate) {
     for (var key in object) {
       if (object.hasOwnProperty(key) && predicate(object[key])) {
+        return key;
+      }
+    }
+  }
+
+  function findIndex(array, predicate) {
+    for (var key = 0; key < array.length; key++) {
+      if (predicate(array[key])) {
         return key;
       }
     }
@@ -9588,6 +9609,7 @@
    */
 
   var locale = {
+    code: 'en-US',
     formatDistance: formatDistance,
     formatLong: formatLong,
     formatRelative: formatRelative,
@@ -9614,7 +9636,7 @@
    * - [Changes that are common for the whole library](https://github.com/date-fns/date-fns/blob/master/docs/upgradeGuide.md#Common-Changes).
    *
    * @param {Date|Number} date - the date to be changed
-   * @param {Number} amount - the amount of milliseconds to be subtracted
+   * @param {Number} amount - the amount of milliseconds to be subtracted. Positive decimals will be rounded using `Math.floor`, decimals less than zero will be rounded using `Math.ceil`.
    * @returns {Date} the new date with the milliseconds subtracted
    * @throws {TypeError} 2 arguments required
    *
@@ -9625,10 +9647,7 @@
    */
 
   function subMilliseconds(dirtyDate, dirtyAmount) {
-    if (arguments.length < 2) {
-      throw new TypeError('2 arguments required, but only ' + arguments.length + ' present');
-    }
-
+    requiredArgs(2, arguments);
     var amount = toInteger(dirtyAmount);
     return addMilliseconds(dirtyDate, -amount);
   }
@@ -9729,10 +9748,7 @@
   // See issue: https://github.com/date-fns/date-fns/issues/376
 
   function getUTCDayOfYear(dirtyDate) {
-    if (arguments.length < 1) {
-      throw new TypeError('1 argument required, but only ' + arguments.length + ' present');
-    }
-
+    requiredArgs(1, arguments);
     var date = toDate(dirtyDate);
     var timestamp = date.getTime();
     date.setUTCMonth(0, 1);
@@ -9745,10 +9761,7 @@
   // See issue: https://github.com/date-fns/date-fns/issues/376
 
   function startOfUTCISOWeek(dirtyDate) {
-    if (arguments.length < 1) {
-      throw new TypeError('1 argument required, but only ' + arguments.length + ' present');
-    }
-
+    requiredArgs(1, arguments);
     var weekStartsOn = 1;
     var date = toDate(dirtyDate);
     var day = date.getUTCDay();
@@ -9761,10 +9774,7 @@
   // See issue: https://github.com/date-fns/date-fns/issues/376
 
   function getUTCISOWeekYear(dirtyDate) {
-    if (arguments.length < 1) {
-      throw new TypeError('1 argument required, but only ' + arguments.length + ' present');
-    }
-
+    requiredArgs(1, arguments);
     var date = toDate(dirtyDate);
     var year = date.getUTCFullYear();
     var fourthOfJanuaryOfNextYear = new Date(0);
@@ -9788,10 +9798,7 @@
   // See issue: https://github.com/date-fns/date-fns/issues/376
 
   function startOfUTCISOWeekYear(dirtyDate) {
-    if (arguments.length < 1) {
-      throw new TypeError('1 argument required, but only ' + arguments.length + ' present');
-    }
-
+    requiredArgs(1, arguments);
     var year = getUTCISOWeekYear(dirtyDate);
     var fourthOfJanuary = new Date(0);
     fourthOfJanuary.setUTCFullYear(year, 0, 4);
@@ -9804,10 +9811,7 @@
   // See issue: https://github.com/date-fns/date-fns/issues/376
 
   function getUTCISOWeek(dirtyDate) {
-    if (arguments.length < 1) {
-      throw new TypeError('1 argument required, but only ' + arguments.length + ' present');
-    }
-
+    requiredArgs(1, arguments);
     var date = toDate(dirtyDate);
     var diff = startOfUTCISOWeek(date).getTime() - startOfUTCISOWeekYear(date).getTime(); // Round the number of days to the nearest integer
     // because the number of milliseconds in a week is not constant
@@ -9819,10 +9823,7 @@
   // See issue: https://github.com/date-fns/date-fns/issues/376
 
   function startOfUTCWeek(dirtyDate, dirtyOptions) {
-    if (arguments.length < 1) {
-      throw new TypeError('1 argument required, but only ' + arguments.length + ' present');
-    }
-
+    requiredArgs(1, arguments);
     var options = dirtyOptions || {};
     var locale = options.locale;
     var localeWeekStartsOn = locale && locale.options && locale.options.weekStartsOn;
@@ -9844,10 +9845,7 @@
   // See issue: https://github.com/date-fns/date-fns/issues/376
 
   function getUTCWeekYear(dirtyDate, dirtyOptions) {
-    if (arguments.length < 1) {
-      throw new TypeError('1 argument required, but only ' + arguments.length + ' present');
-    }
-
+    requiredArgs(1, arguments);
     var date = toDate(dirtyDate, dirtyOptions);
     var year = date.getUTCFullYear();
     var options = dirtyOptions || {};
@@ -9881,10 +9879,7 @@
   // See issue: https://github.com/date-fns/date-fns/issues/376
 
   function startOfUTCWeekYear(dirtyDate, dirtyOptions) {
-    if (arguments.length < 1) {
-      throw new TypeError('1 argument required, but only ' + arguments.length + ' present');
-    }
-
+    requiredArgs(1, arguments);
     var options = dirtyOptions || {};
     var locale = options.locale;
     var localeFirstWeekContainsDate = locale && locale.options && locale.options.firstWeekContainsDate;
@@ -9902,10 +9897,7 @@
   // See issue: https://github.com/date-fns/date-fns/issues/376
 
   function getUTCWeek(dirtyDate, options) {
-    if (arguments.length < 1) {
-      throw new TypeError('1 argument required, but only ' + arguments.length + ' present');
-    }
-
+    requiredArgs(1, arguments);
     var date = toDate(dirtyDate);
     var diff = startOfUTCWeek(date, options).getTime() - startOfUTCWeekYear(date, options).getTime(); // Round the number of days to the nearest integer
     // because the number of milliseconds in a week is not constant
@@ -10866,15 +10858,15 @@
   function isProtectedWeekYearToken(token) {
     return protectedWeekYearTokens.indexOf(token) !== -1;
   }
-  function throwProtectedError(token) {
+  function throwProtectedError(token, format, input) {
     if (token === 'YYYY') {
-      throw new RangeError('Use `yyyy` instead of `YYYY` for formatting years; see: https://git.io/fxCyr');
+      throw new RangeError("Use `yyyy` instead of `YYYY` (in `".concat(format, "`) for formatting years to the input `").concat(input, "`; see: https://git.io/fxCyr"));
     } else if (token === 'YY') {
-      throw new RangeError('Use `yy` instead of `YY` for formatting years; see: https://git.io/fxCyr');
+      throw new RangeError("Use `yy` instead of `YY` (in `".concat(format, "`) for formatting years to the input `").concat(input, "`; see: https://git.io/fxCyr"));
     } else if (token === 'D') {
-      throw new RangeError('Use `d` instead of `D` for formatting days of the month; see: https://git.io/fxCyr');
+      throw new RangeError("Use `d` instead of `D` (in `".concat(format, "`) for formatting days of the month to the input `").concat(input, "`; see: https://git.io/fxCyr"));
     } else if (token === 'DD') {
-      throw new RangeError('Use `dd` instead of `DD` for formatting days of the month; see: https://git.io/fxCyr');
+      throw new RangeError("Use `dd` instead of `DD` (in `".concat(format, "`) for formatting days of the month to the input `").concat(input, "`; see: https://git.io/fxCyr"));
     }
   }
 
@@ -10893,7 +10885,7 @@
   // sequences of symbols P, p, and the combinations like `PPPPPPPppppp`
 
   var longFormattingTokensRegExp = /P+p+|P+|p+|''|'(''|[^'])+('|$)|./g;
-  var escapedStringRegExp = /^'(.*?)'?$/;
+  var escapedStringRegExp = /^'([^]*?)'?$/;
   var doubleQuoteRegExp = /''/g;
   var unescapedLatinCharacterRegExp = /[a-zA-Z]/;
   /**
@@ -10981,28 +10973,28 @@
    * |                                 | DD      | 01, 02, ..., 365, 366             | 9     |
    * |                                 | DDD     | 001, 002, ..., 365, 366           |       |
    * |                                 | DDDD    | ...                               | 3     |
-   * | Day of week (formatting)        | E..EEE  | Mon, Tue, Wed, ..., Su            |       |
+   * | Day of week (formatting)        | E..EEE  | Mon, Tue, Wed, ..., Sun           |       |
    * |                                 | EEEE    | Monday, Tuesday, ..., Sunday      | 2     |
    * |                                 | EEEEE   | M, T, W, T, F, S, S               |       |
    * |                                 | EEEEEE  | Mo, Tu, We, Th, Fr, Su, Sa        |       |
    * | ISO day of week (formatting)    | i       | 1, 2, 3, ..., 7                   | 7     |
    * |                                 | io      | 1st, 2nd, ..., 7th                | 7     |
    * |                                 | ii      | 01, 02, ..., 07                   | 7     |
-   * |                                 | iii     | Mon, Tue, Wed, ..., Su            | 7     |
+   * |                                 | iii     | Mon, Tue, Wed, ..., Sun           | 7     |
    * |                                 | iiii    | Monday, Tuesday, ..., Sunday      | 2,7   |
    * |                                 | iiiii   | M, T, W, T, F, S, S               | 7     |
    * |                                 | iiiiii  | Mo, Tu, We, Th, Fr, Su, Sa        | 7     |
    * | Local day of week (formatting)  | e       | 2, 3, 4, ..., 1                   |       |
    * |                                 | eo      | 2nd, 3rd, ..., 1st                | 7     |
    * |                                 | ee      | 02, 03, ..., 01                   |       |
-   * |                                 | eee     | Mon, Tue, Wed, ..., Su            |       |
+   * |                                 | eee     | Mon, Tue, Wed, ..., Sun           |       |
    * |                                 | eeee    | Monday, Tuesday, ..., Sunday      | 2     |
    * |                                 | eeeee   | M, T, W, T, F, S, S               |       |
    * |                                 | eeeeee  | Mo, Tu, We, Th, Fr, Su, Sa        |       |
    * | Local day of week (stand-alone) | c       | 2, 3, 4, ..., 1                   |       |
    * |                                 | co      | 2nd, 3rd, ..., 1st                | 7     |
    * |                                 | cc      | 02, 03, ..., 01                   |       |
-   * |                                 | ccc     | Mon, Tue, Wed, ..., Su            |       |
+   * |                                 | ccc     | Mon, Tue, Wed, ..., Sun           |       |
    * |                                 | cccc    | Monday, Tuesday, ..., Sunday      | 2     |
    * |                                 | ccccc   | M, T, W, T, F, S, S               |       |
    * |                                 | cccccc  | Mo, Tu, We, Th, Fr, Su, Sa        |       |
@@ -11023,7 +11015,7 @@
    * |                                 | HH      | 00, 01, 02, ..., 23               |       |
    * | Hour [0-11]                     | K       | 1, 2, ..., 11, 0                  |       |
    * |                                 | Ko      | 1st, 2nd, ..., 11th, 0th          | 7     |
-   * |                                 | KK      | 1, 2, ..., 11, 0                  |       |
+   * |                                 | KK      | 01, 02, ..., 11, 00               |       |
    * | Hour [1-24]                     | k       | 24, 1, 2, ..., 23                 |       |
    * |                                 | ko      | 24th, 1st, 2nd, ..., 23rd         | 7     |
    * |                                 | kk      | 24, 01, 02, ..., 23               |       |
@@ -11176,14 +11168,15 @@
    *   see: https://git.io/fxCyr
    * @returns {String} the formatted date string
    * @throws {TypeError} 2 arguments required
+   * @throws {RangeError} `date` must not be Invalid Date
    * @throws {RangeError} `options.locale` must contain `localize` property
    * @throws {RangeError} `options.locale` must contain `formatLong` property
    * @throws {RangeError} `options.weekStartsOn` must be between 0 and 6
    * @throws {RangeError} `options.firstWeekContainsDate` must be between 1 and 7
-   * @throws {RangeError} use `yyyy` instead of `YYYY` for formatting years; see: https://git.io/fxCyr
-   * @throws {RangeError} use `yy` instead of `YY` for formatting years; see: https://git.io/fxCyr
-   * @throws {RangeError} use `d` instead of `D` for formatting days of the month; see: https://git.io/fxCyr
-   * @throws {RangeError} use `dd` instead of `DD` for formatting days of the month; see: https://git.io/fxCyr
+   * @throws {RangeError} use `yyyy` instead of `YYYY` for formatting years using [format provided] to the input [input provided]; see: https://git.io/fxCyr
+   * @throws {RangeError} use `yy` instead of `YY` for formatting years using [format provided] to the input [input provided]; see: https://git.io/fxCyr
+   * @throws {RangeError} use `d` instead of `D` for formatting days of the month using [format provided] to the input [input provided]; see: https://git.io/fxCyr
+   * @throws {RangeError} use `dd` instead of `DD` for formatting days of the month using [format provided] to the input [input provided]; see: https://git.io/fxCyr
    * @throws {RangeError} format string contains an unescaped latin alphabet character
    *
    * @example
@@ -11206,10 +11199,7 @@
    */
 
   function format(dirtyDate, dirtyFormatStr, dirtyOptions) {
-    if (arguments.length < 2) {
-      throw new TypeError('2 arguments required, but only ' + arguments.length + ' present');
-    }
-
+    requiredArgs(2, arguments);
     var formatStr = String(dirtyFormatStr);
     var options = dirtyOptions || {};
     var locale$1 = options.locale || locale;
@@ -11279,11 +11269,11 @@
 
       if (formatter) {
         if (!options.useAdditionalWeekYearTokens && isProtectedWeekYearToken(substring)) {
-          throwProtectedError(substring);
+          throwProtectedError(substring, dirtyFormatStr, dirtyDate);
         }
 
         if (!options.useAdditionalDayOfYearTokens && isProtectedDayOfYearToken(substring)) {
-          throwProtectedError(substring);
+          throwProtectedError(substring, dirtyFormatStr, dirtyDate);
         }
 
         return formatter(utcDate, substring, locale$1.localize, formatterOptions);
@@ -11321,10 +11311,7 @@
   // See issue: https://github.com/date-fns/date-fns/issues/376
 
   function setUTCDay(dirtyDate, dirtyDay, dirtyOptions) {
-    if (arguments.length < 2) {
-      throw new TypeError('2 arguments required, but only ' + arguments.length + ' present');
-    }
-
+    requiredArgs(2, arguments);
     var options = dirtyOptions || {};
     var locale = options.locale;
     var localeWeekStartsOn = locale && locale.options && locale.options.weekStartsOn;
@@ -11348,10 +11335,7 @@
   // See issue: https://github.com/date-fns/date-fns/issues/376
 
   function setUTCISODay(dirtyDate, dirtyDay) {
-    if (arguments.length < 2) {
-      throw new TypeError('2 arguments required, but only ' + arguments.length + ' present');
-    }
-
+    requiredArgs(2, arguments);
     var day = toInteger(dirtyDay);
 
     if (day % 7 === 0) {
@@ -11371,10 +11355,7 @@
   // See issue: https://github.com/date-fns/date-fns/issues/376
 
   function setUTCISOWeek(dirtyDate, dirtyISOWeek) {
-    if (arguments.length < 2) {
-      throw new TypeError('2 arguments required, but only ' + arguments.length + ' present');
-    }
-
+    requiredArgs(2, arguments);
     var date = toDate(dirtyDate);
     var isoWeek = toInteger(dirtyISOWeek);
     var diff = getUTCISOWeek(date) - isoWeek;
@@ -11385,10 +11366,7 @@
   // See issue: https://github.com/date-fns/date-fns/issues/376
 
   function setUTCWeek(dirtyDate, dirtyWeek, options) {
-    if (arguments.length < 2) {
-      throw new TypeError('2 arguments required, but only ' + arguments.length + ' present');
-    }
-
+    requiredArgs(2, arguments);
     var date = toDate(dirtyDate);
     var week = toInteger(dirtyWeek);
     var diff = getUTCWeek(date, options) - week;
@@ -12098,6 +12076,7 @@
     // Day of the month
     d: {
       priority: 90,
+      subPriority: 1,
       parse: function (string, token, match, _options) {
         switch (token) {
           case 'd':
@@ -12133,6 +12112,7 @@
     // Day of year
     D: {
       priority: 90,
+      subPriority: 1,
       parse: function (string, token, match, _options) {
         switch (token) {
           case 'D':
@@ -12906,7 +12886,7 @@
   // sequences of symbols P, p, and the combinations like `PPPPPPPppppp`
 
   var longFormattingTokensRegExp$1 = /P+p+|P+|p+|''|'(''|[^'])+('|$)|./g;
-  var escapedStringRegExp$1 = /^'(.*?)'?$/;
+  var escapedStringRegExp$1 = /^'([^]*?)'?$/;
   var doubleQuoteRegExp$1 = /''/g;
   var notWhitespaceRegExp = /\S/;
   var unescapedLatinCharacterRegExp$1 = /[a-zA-Z]/;
@@ -13004,28 +12984,28 @@
    * |                                 |     | DD      | 01, 02, ..., 365, 366             | 7     |
    * |                                 |     | DDD     | 001, 002, ..., 365, 366           |       |
    * |                                 |     | DDDD    | ...                               | 2     |
-   * | Day of week (formatting)        |  90 | E..EEE  | Mon, Tue, Wed, ..., Su            |       |
+   * | Day of week (formatting)        |  90 | E..EEE  | Mon, Tue, Wed, ..., Sun           |       |
    * |                                 |     | EEEE    | Monday, Tuesday, ..., Sunday      | 2     |
    * |                                 |     | EEEEE   | M, T, W, T, F, S, S               |       |
    * |                                 |     | EEEEEE  | Mo, Tu, We, Th, Fr, Su, Sa        |       |
    * | ISO day of week (formatting)    |  90 | i       | 1, 2, 3, ..., 7                   | 5     |
    * |                                 |     | io      | 1st, 2nd, ..., 7th                | 5     |
    * |                                 |     | ii      | 01, 02, ..., 07                   | 5     |
-   * |                                 |     | iii     | Mon, Tue, Wed, ..., Su            | 5     |
+   * |                                 |     | iii     | Mon, Tue, Wed, ..., Sun           | 5     |
    * |                                 |     | iiii    | Monday, Tuesday, ..., Sunday      | 2,5   |
    * |                                 |     | iiiii   | M, T, W, T, F, S, S               | 5     |
    * |                                 |     | iiiiii  | Mo, Tu, We, Th, Fr, Su, Sa        | 5     |
    * | Local day of week (formatting)  |  90 | e       | 2, 3, 4, ..., 1                   |       |
    * |                                 |     | eo      | 2nd, 3rd, ..., 1st                | 5     |
    * |                                 |     | ee      | 02, 03, ..., 01                   |       |
-   * |                                 |     | eee     | Mon, Tue, Wed, ..., Su            |       |
+   * |                                 |     | eee     | Mon, Tue, Wed, ..., Sun           |       |
    * |                                 |     | eeee    | Monday, Tuesday, ..., Sunday      | 2     |
    * |                                 |     | eeeee   | M, T, W, T, F, S, S               |       |
    * |                                 |     | eeeeee  | Mo, Tu, We, Th, Fr, Su, Sa        |       |
    * | Local day of week (stand-alone) |  90 | c       | 2, 3, 4, ..., 1                   |       |
    * |                                 |     | co      | 2nd, 3rd, ..., 1st                | 5     |
    * |                                 |     | cc      | 02, 03, ..., 01                   |       |
-   * |                                 |     | ccc     | Mon, Tue, Wed, ..., Su            |       |
+   * |                                 |     | ccc     | Mon, Tue, Wed, ..., Sun           |       |
    * |                                 |     | cccc    | Monday, Tuesday, ..., Sunday      | 2     |
    * |                                 |     | ccccc   | M, T, W, T, F, S, S               |       |
    * |                                 |     | cccccc  | Mo, Tu, We, Th, Fr, Su, Sa        |       |
@@ -13046,7 +13026,7 @@
    * |                                 |     | HH      | 00, 01, 02, ..., 23               |       |
    * | Hour [0-11]                     |  70 | K       | 1, 2, ..., 11, 0                  |       |
    * |                                 |     | Ko      | 1st, 2nd, ..., 11th, 0th          | 5     |
-   * |                                 |     | KK      | 1, 2, ..., 11, 0                  |       |
+   * |                                 |     | KK      | 01, 02, ..., 11, 00               |       |
    * | Hour [1-24]                     |  70 | k       | 24, 1, 2, ..., 23                 |       |
    * |                                 |     | ko      | 24th, 1st, 2nd, ..., 23rd         | 5     |
    * |                                 |     | kk      | 24, 01, 02, ..., 23               |       |
@@ -13116,7 +13096,7 @@
    *    | BC 1 |   1 |   0 |
    *    | BC 2 |   2 |  -1 |
    *
-   *    Also `yy` will try to guess the century of two digit year by proximity with `backupDate`:
+   *    Also `yy` will try to guess the century of two digit year by proximity with `referenceDate`:
    *
    *    `parse('50', 'yy', new Date(2018, 0, 1)) //=> Sat Jan 01 2050 00:00:00`
    *
@@ -13159,18 +13139,18 @@
    * Units of an equal priority overwrite each other in the order of appearance.
    *
    * If no values of higher priority are parsed (e.g. when parsing string 'January 1st' without a year),
-   * the values will be taken from 3rd argument `backupDate` which works as a context of parsing.
+   * the values will be taken from 3rd argument `referenceDate` which works as a context of parsing.
    *
-   * `backupDate` must be passed for correct work of the function.
-   * If you're not sure which `backupDate` to supply, create a new instance of Date:
+   * `referenceDate` must be passed for correct work of the function.
+   * If you're not sure which `referenceDate` to supply, create a new instance of Date:
    * `parse('02/11/2014', 'MM/dd/yyyy', new Date())`
    * In this case parsing will be done in the context of the current date.
-   * If `backupDate` is `Invalid Date` or a value not convertible to valid `Date`,
+   * If `referenceDate` is `Invalid Date` or a value not convertible to valid `Date`,
    * then `Invalid Date` will be returned.
    *
    * The result may vary by locale.
    *
-   * If `formatString` matches with `dateString` but does not provides tokens, `backupDate` will be returned.
+   * If `formatString` matches with `dateString` but does not provides tokens, `referenceDate` will be returned.
    *
    * If parsing failed, `Invalid Date` will be returned.
    * Invalid Date is a Date, whose time value is NaN.
@@ -13194,7 +13174,7 @@
    *
    * @param {String} dateString - the string to parse
    * @param {String} formatString - the string of tokens
-   * @param {Date|Number} backupDate - defines values missing from the parsed dateString
+   * @param {Date|Number} referenceDate - defines values missing from the parsed dateString
    * @param {Object} [options] - an object with options.
    * @param {Locale} [options.locale=defaultLocale] - the locale object. See [Locale]{@link https://date-fns.org/docs/Locale}
    * @param {0|1|2|3|4|5|6} [options.weekStartsOn=0] - the index of the first day of the week (0 - Sunday)
@@ -13208,10 +13188,10 @@
    * @throws {RangeError} `options.weekStartsOn` must be between 0 and 6
    * @throws {RangeError} `options.firstWeekContainsDate` must be between 1 and 7
    * @throws {RangeError} `options.locale` must contain `match` property
-   * @throws {RangeError} use `yyyy` instead of `YYYY` for formatting years; see: https://git.io/fxCyr
-   * @throws {RangeError} use `yy` instead of `YY` for formatting years; see: https://git.io/fxCyr
-   * @throws {RangeError} use `d` instead of `D` for formatting days of the month; see: https://git.io/fxCyr
-   * @throws {RangeError} use `dd` instead of `DD` for formatting days of the month; see: https://git.io/fxCyr
+   * @throws {RangeError} use `yyyy` instead of `YYYY` for formatting years using [format provided] to the input [input provided]; see: https://git.io/fxCyr
+   * @throws {RangeError} use `yy` instead of `YY` for formatting years using [format provided] to the input [input provided]; see: https://git.io/fxCyr
+   * @throws {RangeError} use `d` instead of `D` for formatting days of the month using [format provided] to the input [input provided]; see: https://git.io/fxCyr
+   * @throws {RangeError} use `dd` instead of `DD` for formatting days of the month using [format provided] to the input [input provided]; see: https://git.io/fxCyr
    * @throws {RangeError} format string contains an unescaped latin alphabet character
    *
    * @example
@@ -13228,11 +13208,8 @@
    * //=> Sun Feb 28 2010 00:00:00
    */
 
-  function parse(dirtyDateString, dirtyFormatString, dirtyBackupDate, dirtyOptions) {
-    if (arguments.length < 3) {
-      throw new TypeError('3 arguments required, but only ' + arguments.length + ' present');
-    }
-
+  function parse(dirtyDateString, dirtyFormatString, dirtyReferenceDate, dirtyOptions) {
+    requiredArgs(3, arguments);
     var dateString = String(dirtyDateString);
     var formatString = String(dirtyFormatString);
     var options = dirtyOptions || {};
@@ -13260,7 +13237,7 @@
 
     if (formatString === '') {
       if (dateString === '') {
-        return toDate(dirtyBackupDate);
+        return toDate(dirtyReferenceDate);
       } else {
         return new Date(NaN);
       }
@@ -13274,6 +13251,7 @@
     };
     var setters = [{
       priority: TIMEZONE_UNIT_PRIORITY,
+      subPriority: -1,
       set: dateToSystemTimezone,
       index: 0
     }];
@@ -13294,11 +13272,11 @@
       var token = tokens[i];
 
       if (!options.useAdditionalWeekYearTokens && isProtectedWeekYearToken(token)) {
-        throwProtectedError(token);
+        throwProtectedError(token, formatString, dirtyDateString);
       }
 
       if (!options.useAdditionalDayOfYearTokens && isProtectedDayOfYearToken(token)) {
-        throwProtectedError(token);
+        throwProtectedError(token, formatString, dirtyDateString);
       }
 
       var firstCharacter = token[0];
@@ -13338,6 +13316,7 @@
 
         setters.push({
           priority: parser.priority,
+          subPriority: parser.subPriority || 0,
           set: parser.set,
           validate: parser.validate,
           value: parseResult.value,
@@ -13379,11 +13358,13 @@
     }).map(function (priority) {
       return setters.filter(function (setter) {
         return setter.priority === priority;
-      }).reverse();
+      }).sort(function (a, b) {
+        return b.subPriority - a.subPriority;
+      });
     }).map(function (setterArray) {
       return setterArray[0];
     });
-    var date = toDate(dirtyBackupDate);
+    var date = toDate(dirtyReferenceDate);
 
     if (isNaN(date)) {
       return new Date(NaN);
@@ -13470,6 +13451,7 @@
   };
 
   var date$1 = /*#__PURE__*/Object.freeze({
+    __proto__: null,
     'default': date
   });
 
@@ -13496,6 +13478,7 @@
   };
 
   var number$1 = /*#__PURE__*/Object.freeze({
+    __proto__: null,
     'default': number
   });
 
@@ -13507,6 +13490,7 @@
   };
 
   var decimal$1 = /*#__PURE__*/Object.freeze({
+    __proto__: null,
     'default': decimal
   });
 
@@ -13518,6 +13502,7 @@
   };
 
   var percentage$1 = /*#__PURE__*/Object.freeze({
+    __proto__: null,
     'default': percentage
   });
 
@@ -13544,6 +13529,7 @@
   };
 
   var _boolean$1 = /*#__PURE__*/Object.freeze({
+    __proto__: null,
     'default': _boolean
   });
 
@@ -13598,6 +13584,18 @@
         type: [Function, String]
       },
       compactMode: Boolean,
+      hasDetailRows: {
+        "default": false,
+        type: Boolean
+      },
+      rowExtensionKeys: {
+        type: Object,
+        "default": function _default() {
+          return {
+            isDetailRowShown: 'isDetailRowShown'
+          };
+        }
+      },
       groupOptions: {
         "default": function _default() {
           return {
@@ -13760,6 +13758,11 @@
       }
     },
     computed: {
+      visibleColumns: function visibleColumns() {
+        return this.columns.filter(function (column) {
+          return !column.hidden && column.field;
+        });
+      },
       tableStyles: function tableStyles() {
         if (this.compactMode) return this.tableStyleClasses + 'vgt-compact';else return this.tableStyleClasses;
       },
@@ -14951,8 +14954,8 @@
           }
         }], null, true)
       }) : _vm._e(), _vm._v(" "), _vm._l(headerRow.children, function (row, index) {
-        return (_vm.groupOptions.collapsable ? headerRow.vgtIsExpanded : true) ? _c('tr', {
-          key: row.originalIndex,
+        return (_vm.groupOptions.collapsable ? headerRow.vgtIsExpanded : true) ? [_c('tr', {
+          key: 'base_' + row.originalIndex,
           "class": _vm.getRowStyleClass(row),
           on: {
             "mouseenter": function mouseenter($event) {
@@ -15010,7 +15013,17 @@
             "formattedRow": _vm.formattedRow(row),
             "index": index
           })], 2) : _vm._e();
-        })], 2) : _vm._e();
+        })], 2), _vm._v(" "), _vm.hasDetailRows && row[_vm.rowExtensionKeys['isDetailRowShown']] ? _c('tr', {
+          key: 'detail_' + row.originalIndex,
+          staticClass: "vgt-detail-row"
+        }, [_c('td', {
+          attrs: {
+            "colspan": _vm.visibleColumns.length
+          }
+        }, [_vm._t("table-detail-row", null, {
+          "row": row,
+          "index": index
+        })], 2)]) : _vm._e()] : _vm._e();
       }), _vm._v(" "), _vm.groupHeaderOnBottom ? _c('vgt-header-row', {
         attrs: {
           "header-row": headerRow,
@@ -15094,9 +15107,7 @@
 
   /* style inject shadow dom */
 
-  var __vue_component__$6 =
-  /*#__PURE__*/
-  normalizeComponent({
+  var __vue_component__$6 = /*#__PURE__*/normalizeComponent({
     render: __vue_render__$6,
     staticRenderFns: __vue_staticRenderFns__$6
   }, __vue_inject_styles__$6, __vue_script__$6, __vue_scope_id__$6, __vue_is_functional_template__$6, __vue_module_identifier__$6, false, undefined, undefined, undefined);
@@ -15116,4 +15127,4 @@
 
   Object.defineProperty(exports, '__esModule', { value: true });
 
-}));
+})));
